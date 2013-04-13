@@ -7,18 +7,39 @@ In this example I'm going to use a free EC2 instance but it can be any linux ser
 If don't you have an AWS account go ahead and signup for one. (http://aws.amazon.com/)
 
 Part A (sever setup):
-1.	Before you create an ec2 instance you need to setup a firewall
-		A. From EC2 console > Select security group
-		B. There should be a default group, select that one
-		C. Select inbound tab, delete all the rules since its opening all your ports
-		D. Add a rule to open port 22 and forwarding port, in this example i will use 2222
-		E. Apply rule changes
+* 1.	Before you create an ec2 instance you need to setup a firewall
+	* A. From EC2 console > Select security group
+	* B. There should be a default group, select that one
+  	* C. Select inbound tab, delete all the rules since its opening all your ports
+	* D. Add a rule to open port 22 and forwarding port, in this example i will use 2222
+  	* Apply rule changes
+* 2.	From EC2 console > launch instance > choose classic wizard
+	* A. Choose AMI - choose any linux flavor you like
+	* B. Instance details - use defaults and hit and continue
+	* C. Create Key Pair - Select create new key pair and enter in any name you like, this key will be used to authenticate you into your instance, you can only download it once so save it to a proper place.
+							 In this example I named it "mykey" and saved it to my user root folder on my laptop. So my key is sitting at ~/mykey.pem
+	* D. Firewall - Select the default security group you modified in step 1
+	* E. And launch!!
+
+Give it a few seconds before your instance is running. Click on your instance and see your DNS, it should be something like this
+
+
+		Public DNS: ec2-99-999-9-999.us-west-2.compute.amazonaws.com
+Now check if it accessible, use the key you saved earlier and ssh into it:
+
+		ssh -i ~/mykey.pem ec2-99-999-9-999.us-west-2.compute.amazonaws.com
+
+
 		
-2.	From EC2 console > launch instance > choose classic wizard
-		A. Choose AMI - choose any linux flavor you like
-		B. Instance details - use defaults and hit and continue
-		C. Create Key Pair - Select create new key pair and enter in any name you like, this key will be used to authenticate you into your instance, you can only download it once so save it to a proper place.
-							 In this example I named it "mykey" and saved it to my user root folder on my laptop. So my key is sitting at ~/mykey.pem							 
-		D. Firewall - Select the default security group you modified in step 1.
-		E. And launch!!
+		
+		
+		
+		
+		
+
+		
+		
+									 
+		
+		
 
