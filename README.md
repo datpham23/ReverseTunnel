@@ -16,7 +16,7 @@ Part A (sever setup):
 * 2.	From EC2 console > launch instance > choose classic wizard
 	* A. Choose AMI - choose any linux flavor you like
 	* B. Instance details - use defaults and hit and continue
-	* C. Create Key Pair - Select create new key pair and enter in any name you like, this key will be used to authenticate you into your instance, you can only download it once so save it to a proper place.
+	* C. Create Key Pair - This key will be used to authenticate you into your instance, you can only download it once so save it to a proper place.
 							 In this example I named it "mykey" and saved it to my user root folder on my laptop. So my key is sitting at ~/mykey.pem
 	* D. Firewall - Select the default security group you modified in step 1
 	* E. And launch!!
