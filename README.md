@@ -62,18 +62,42 @@ The following command will create a reverse tunnel to your ec2 instance and pers
 
 5. One big problem, how will autossh run if my laptop reboot? 
 		
-		Autossh default behavior will run 30s after reboot and completely terminate if it fails on its 1st attempt
-		Your machine might not be able to establish wifi connection within 30s
-		Setting this env variable to 0, enable autossh to retry infinitely
-		export AUTOSSH_GATETIME=0
+	Download [autossh.sh](https://github.com/datpham23/ReverseTunnel/blob/master/autossh.sh)
 
 		sudo crontab -u root -e
-		add a new entry
-		@reboot autossh -M 3000 -R 2222:localhost:22 -i ~/mykey.pem ec2-user@ec2-99-999-9-999.us-west-2.compute.amazonaws.com
+		#add a new entry
+		@reboot /pathToScript/autossh.sh
 		
-		Tada! problem solved.
+		Tada! problem solved. You can comment out the logging env vars once autossh is working normally. 
 		
-6. 
+6. The following steps is optional however its highly recommended for security purposes.
+
+(http://www.howtoforge.com/setting-up-an-ssh-certificate-for-ubuntu-from-a-mac)	
+
+
+
+
+
+
+Useful commands once you are on your machine:
+
+		Take a screenshot:
+		screencapture /pickApath/screenshot.jpg
+		
+		Take a webcam picture:
+		#install imagesnap first
+		brew install imagesnap
+		
+		KeyChain Location:
+		~/Library/Keychains/login.keychain
+		
+		Use this client to unload your files
+		(http://cyberduck.ch/)
+		
+		
+		
+
+
 		
 		
 		
